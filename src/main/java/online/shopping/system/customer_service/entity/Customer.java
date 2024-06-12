@@ -1,4 +1,4 @@
-package online.shopping.system.customer.service.entity;
+package online.shopping.system.customer_service.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,19 +32,19 @@ public class Customer {
     private int customerId;
 
     @Column(name = "username")
-    private int username;
+    private String username;
 
     @Column(name = "password")
-    private int password;
+    private String password;
 
     @Column(name = "name")
-    private int name;
+    private String name;
 
     @Column(name = "email")
-    private int email;
+    private String email;
 
     @Column(name = "phone")
-    private int phone;
+    private String phone;
 
     @Column(name = "created_on")
     @CreatedDate
