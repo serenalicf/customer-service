@@ -26,8 +26,8 @@ public class CustomerController {
 
 
     @GetMapping("/customers/{customerId}")
-    CustomerDto getCustomer(@Validated @PathVariable("customerId") String customerId) {
-        Customer customer = customerService.getCustomer(Integer.parseInt(customerId));
+    CustomerDto getCustomer(@Validated @PathVariable("customerId") Integer customerId) {
+        Customer customer = customerService.getCustomer(customerId);
         return CustomerMapper.INSTANCE.customerToCustomerDto(customer);
     }
 
