@@ -55,4 +55,7 @@ public class Customer {
     @LastModifiedDate
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime lastModifiedOn;
+
+    @Column(name = "jwt_id")
+    private String jwtId;
 }

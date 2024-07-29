@@ -11,4 +11,5 @@ import java.util.Optional;
 public interface CustomerRepository extends JpaRepository<Customer, Integer>, JpaSpecificationExecutor<Customer> {
     Optional<Customer> findByCustomerId(Integer customerId);
 
+    Optional<Customer> findByUsername(String username);
 }

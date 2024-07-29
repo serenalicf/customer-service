@@ -2,7 +2,9 @@ package online.shopping.system.customer_service.controller;
 
 import online.shopping.system.customer_service.dto.CustomerDto;
 import online.shopping.system.customer_service.entity.Customer;
-import online.shopping.system.customer_service.mapper.CustomerMapper;
+import online.shopping.system.customer_service.exception.BusinessException;
+import online.shopping.system.customer_service.keycloak.dto.UserDTO;
+import online.shopping.system.customer_service.entity.mapper.CustomerMapper;
 import online.shopping.system.customer_service.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -29,6 +31,11 @@ public class CustomerController {
     CustomerDto getCustomer(@Validated @PathVariable("customerId") Integer customerId) {
         Customer customer = customerService.getCustomer(customerId);
         return CustomerMapper.INSTANCE.customerToCustomerDto(customer);
+    }
+
+    @PostMapping("/customers")
+    void createCustomer(@RequestBody UserDTO userDTO) throws BusinessException {
+        customerService.createCustomer(userDTO);
     }
 
 }
