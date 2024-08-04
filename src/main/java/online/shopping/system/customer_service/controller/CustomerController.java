@@ -20,13 +20,6 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
 
-//    @PostMapping("/customer/creation")
-//    CustomerDto createCustomer(@Valid @RequestBody CustomerReqDto){
-//        Customer customer = customerService.createCustomer(customerId);
-//        return CustomerMapper.INSTANCE.customerToCustomerDto(customer);
-//    }
-
-
     @GetMapping("/customers/{customerId}")
     CustomerDto getCustomer(@Validated @PathVariable("customerId") Integer customerId) {
         Customer customer = customerService.getCustomer(customerId);
