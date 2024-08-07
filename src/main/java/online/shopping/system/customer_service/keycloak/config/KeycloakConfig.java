@@ -4,21 +4,24 @@ import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.keycloak.OAuth2Constants;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.KeycloakBuilder;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 
-
+@Configuration
+@ConfigurationProperties(prefix ="keycloak")
 public class KeycloakConfig {
 
     static Keycloak keycloak = null;
 
-    final static String serverUrl = "http://localhost:8080/realms/ShoppingSystem";
+    final static String serverUrl = "";
 
-    public final static String realm = "ShoppingSystem";
+    public final static String realm = "";
 
-    final static String clientId = "customer-service";
+    final static String clientId = "";
 
-    final static String clientSecret = "dvOuPY3bPDgV7mXfhH8l58KrujWOnIxs";
-    final static String username = "user";
-    final static String password = "password";
+    final static String clientSecret = "";
+    final static String username = "";
+    final static String password = "";
 
     public KeycloakConfig(){
     }

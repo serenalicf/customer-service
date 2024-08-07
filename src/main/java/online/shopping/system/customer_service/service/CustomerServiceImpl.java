@@ -10,6 +10,7 @@ import org.keycloak.representations.idm.UserRepresentation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,14 +36,16 @@ public class CustomerServiceImpl implements CustomerService {
         }
         keyCloakService.addUser(userDTO);
         List<UserRepresentation> user = keyCloakService.getUser(userDTO.getUsername());
+
         String userId = user.get(0).getId();
         Customer newCustomer = Customer.builder()
                 .username(userDTO.getUsername())
-                .password(userDTO.getPassword())
                 .name(userDTO.getFirstname() + " " + userDTO.getLastName())
                 .email(userDTO.getEmailId())
                 .phone(userDTO.getPhone())
                 .jwtId(userId)
+                .createdOn(LocalDateTime.now())
+                .lastModifiedOn(LocalDateTime.now())
                 .build();
         customerRepository.save(newCustomer);
     }

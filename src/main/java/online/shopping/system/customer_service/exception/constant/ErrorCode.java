@@ -10,7 +10,8 @@ import org.apache.logging.log4j.message.ParameterizedMessage;
 public enum ErrorCode implements ExceptionCode {
     CUSTOMER_ALREADY_EXIST("C0001","customer with username: {} is already existed"),
 
-    SYSTEM_BUSY("C0002","System busy");
+    SYSTEM_BUSY("C0002","System busy"),
+    JWT_ID_NOT_MATCH("C003", "Jwt id is not matched with corresponding customer");
 
 
     private final String errorCode;
